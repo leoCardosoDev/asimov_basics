@@ -1,20 +1,30 @@
 import curses
+import random
 
 
 def game_loop(window):
     curses.curs_set(0)
     snake = [[10, 15], [9, 15], [8, 15], [7, 15]]
+    fruit = get_new_fruit(window=window)
     current_direction = curses.KEY_DOWN
     while True:
         draw_screen(window=window)
         draw_snake(snake=snake, window=window)
+        draw_actor(actor=fruit, window=window, char=curses.ACS_DIAMOND)
         direction = get_new_direction(window=window, timeout=1000)
         if direction is None:
             direction = current_direction
         move_snake(snake=snake, direction=direction)
         if snake_hit_border(snake=snake, window=window):
             return
+        if snake_hit_fruit(snake=snake, fruit=fruit):
+            fruit = get_new_fruit(window=window)
         current_direction = direction
+
+
+def get_new_fruit(window):
+    height, width = window.getmaxyx()
+    return [random.randint(1, height-2), random.randint(1, width-2)]
 
 
 def draw_screen(window):
@@ -59,6 +69,10 @@ def move_actor(actor, direction):
             actor[0] += 1
         case curses.KEY_RIGHT:
             actor[1] += 1
+
+
+def snake_hit_fruit(snake, fruit):
+    return fruit in snake
 
 
 def snake_hit_border(snake, window):
