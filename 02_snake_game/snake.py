@@ -7,12 +7,12 @@ def game_loop(window):
     current_direction = curses.KEY_DOWN
     while True:
         draw_screen(window=window)
-        draw_actor(actor=snake, window=window)
+        draw_snake(snake=snake, window=window)
         direction = get_new_direction(window=window, timeout=1000)
         if direction is None:
             direction = current_direction
-        move_actor(actor=snake, direction=direction)
-        if actor_hit_border(actor=snake, window=window):
+        move_snake(snake=snake, direction=direction)
+        if snake_hit_border(snake=snake, window=window):
             return
         current_direction = direction
 
@@ -22,8 +22,16 @@ def draw_screen(window):
     window.border(0)
 
 
-def draw_actor(actor, window):
-    window.addch(actor[0], actor[1],  curses.ACS_DIAMOND)
+def draw_snake(snake, window):
+    head = snake[0]
+    draw_actor(actor=head, window=window, char="@")
+    body = snake[1:]
+    for body_part in body:
+        draw_actor(actor=body_part, window=window, char="s")
+
+
+def draw_actor(actor, window, char):
+    window.addch(actor[0], actor[1],  char)
 
 
 def get_new_direction(window, timeout):
@@ -32,6 +40,13 @@ def get_new_direction(window, timeout):
     if direction in [curses.KEY_UP, curses.KEY_LEFT, curses.KEY_DOWN, curses.KEY_RIGHT]:
         return direction
     return None
+
+
+def move_snake(snake, direction):
+    head = snake[0].copy()
+    move_actor(actor=head, direction=direction)
+    snake.insert(0, head)
+    snake.pop()
 
 
 def move_actor(actor, direction):
@@ -44,6 +59,11 @@ def move_actor(actor, direction):
             actor[0] += 1
         case curses.KEY_RIGHT:
             actor[1] += 1
+
+
+def snake_hit_border(snake, window):
+    head = snake[0]
+    return actor_hit_border(actor=head, window=window)
 
 
 def actor_hit_border(actor, window):
