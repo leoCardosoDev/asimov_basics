@@ -133,13 +133,7 @@ def finish_game(score, window):
 
 
 def select_difficulty():
-    difficulty = {
-        '1': 1000,
-        '2': 500,
-        '3': 250,
-        '4': 100,
-        '5': 50
-    }
+    difficulty = {'1': 1000, '2': 500, '3': 250, '4': 100, '5': 50}
     while True:
         answer = input('Selecione a dificuldade de 1 a 5: ')
         game_speed = difficulty.get(answer)
