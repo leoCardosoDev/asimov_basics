@@ -7,6 +7,8 @@ def game_loop(window):
     snake = [[10, 15], [9, 15], [8, 15], [7, 15]]
     fruit = get_new_fruit(window=window)
     current_direction = curses.KEY_DOWN
+    snake_ate_fruit = False
+
     while True:
         draw_screen(window=window)
         draw_snake(snake=snake, window=window)
@@ -14,11 +16,14 @@ def game_loop(window):
         direction = get_new_direction(window=window, timeout=1000)
         if direction is None:
             direction = current_direction
-        move_snake(snake=snake, direction=direction)
+        move_snake(snake=snake, direction=direction,snake_ate_fruit=snake_ate_fruit)
         if snake_hit_border(snake=snake, window=window):
             return
         if snake_hit_fruit(snake=snake, fruit=fruit):
+            snake_ate_fruit = True
             fruit = get_new_fruit(window=window)
+        else:
+            snake_ate_fruit = False
         current_direction = direction
 
 
@@ -52,11 +57,12 @@ def get_new_direction(window, timeout):
     return None
 
 
-def move_snake(snake, direction):
+def move_snake(snake, direction, snake_ate_fruit):
     head = snake[0].copy()
     move_actor(actor=head, direction=direction)
     snake.insert(0, head)
-    snake.pop()
+    if not snake_ate_fruit:
+      snake.pop()
 
 
 def move_actor(actor, direction):
