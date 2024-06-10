@@ -16,8 +16,13 @@ def game_loop(window):
         direction = get_new_direction(window=window, timeout=1000)
         if direction is None:
             direction = current_direction
-        move_snake(snake=snake, direction=direction,snake_ate_fruit=snake_ate_fruit)
+        if direction_is_opposite(direction=direction, current_direction=current_direction):
+            direction = current_direction
+        move_snake(snake=snake, direction=direction,
+                   snake_ate_fruit=snake_ate_fruit)
         if snake_hit_border(snake=snake, window=window):
+            return
+        if snake_hit_itself(snake=snake):
             return
         if snake_hit_fruit(snake=snake, fruit=fruit):
             snake_ate_fruit = True
@@ -57,12 +62,24 @@ def get_new_direction(window, timeout):
     return None
 
 
+def direction_is_opposite(direction, current_direction):
+    match direction:
+        case curses.KEY_UP:
+            return current_direction == curses.KEY_DOWN
+        case curses.KEY_LEFT:
+            return current_direction == curses.KEY_RIGHT
+        case curses.KEY_DOWN:
+            return current_direction == curses.KEY_UP
+        case curses.KEY_RIGHT:
+            return current_direction == curses.KEY_LEFT
+
+
 def move_snake(snake, direction, snake_ate_fruit):
     head = snake[0].copy()
     move_actor(actor=head, direction=direction)
     snake.insert(0, head)
     if not snake_ate_fruit:
-      snake.pop()
+        snake.pop()
 
 
 def move_actor(actor, direction):
@@ -84,6 +101,12 @@ def snake_hit_fruit(snake, fruit):
 def snake_hit_border(snake, window):
     head = snake[0]
     return actor_hit_border(actor=head, window=window)
+
+
+def snake_hit_itself(snake):
+    head = snake[0]
+    body = snake[1:]
+    return head in body
 
 
 def actor_hit_border(actor, window):
