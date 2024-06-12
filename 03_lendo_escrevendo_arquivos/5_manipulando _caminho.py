@@ -21,4 +21,9 @@ print(Path.cwd() / '03_lendo_escrevendo_arquivos/assets/primeira_pasta')
 print((Path.cwd() / '03_lendo_escrevendo_arquivos/assets/primeira_pasta').exists())
 
 # Garantindo que estamos retornando o caminho para a pasta do script
-print('--------------------------------')
+print(__file__)
+print(Path(__file__))
+print(Path(__file__).is_absolute())
+print(Path(__file__).parent)
+print(Path(__file__).parent / 'assets/primeira_pasta')
+print((Path(__file__).parent / 'assets/primeira_pasta').exists())
