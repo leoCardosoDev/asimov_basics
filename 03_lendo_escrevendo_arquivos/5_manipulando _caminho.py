@@ -11,3 +11,11 @@ print(Path.cwd().is_absolute())
 print(Path('03_lendo_escrevendo_arquivos/assets/primeira_pasta'))
 # Esse é caminho absoluto?
 print(Path('03_lendo_escrevendo_arquivos/assets/primeira_pasta').is_absolute())
+
+# Transformando o caminho em absoluto
+print(Path.cwd() / '03_lendo_escrevendo_arquivos/assets/primeira_pasta')
+print((Path.cwd() / '03_lendo_escrevendo_arquivos/assets/primeira_pasta').exists())
+# Trocando de pasta
+os.chdir(Path.home())
+print(Path.cwd() / '03_lendo_escrevendo_arquivos/assets/primeira_pasta')
+print((Path.cwd() / '03_lendo_escrevendo_arquivos/assets/primeira_pasta').exists())
