@@ -10,9 +10,13 @@ class Book(object):
 
     def __len__(self):
         return self.pages
+    
+    def __del__(self):
+        print('A book is destroyed')
 
 
 book = Book('Curso de Python', 'Leo Silva', 159)
 # Metodos especial
 print(book)
 print(len(book))
+del book
