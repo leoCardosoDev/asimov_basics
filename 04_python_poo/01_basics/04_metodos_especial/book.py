@@ -8,7 +8,11 @@ class Book(object):
     def __str__(self) -> str:
         return "Title: %s, Author: %s, Pages: %s" % (self.title, self.author, self.pages)
 
+    def __len__(self):
+        return self.pages
+
 
 book = Book('Curso de Python', 'Leo Silva', 159)
 # Metodos especial
 print(book)
+print(len(book))
