@@ -25,3 +25,10 @@ class Academia:
     def calcular_caos(self):
         num_caos = [i for i, j in self.porta_halteres.items() if i != j]
         return len(num_caos) / len(self.porta_halteres)
+
+
+class Usuario:
+    def __init__(self, tipo, academia):
+        self.tipo = tipo
+        self.academia = academia
+        self.peso = 0
