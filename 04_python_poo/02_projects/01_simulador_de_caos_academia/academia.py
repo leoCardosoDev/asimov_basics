@@ -12,3 +12,9 @@ class Academia:
 
     def listar_halteres(self):
         return [i for i in self.porta_halteres.values() if i != 0]
+
+    def pegar_haltere(self, peso):
+        halt_pos = list(self.porta_halteres.values()).index(peso)
+        key_halt = list(self.porta_halteres.keys())[halt_pos]
+        self.porta_halteres[key_halt] = 0
+        return peso
