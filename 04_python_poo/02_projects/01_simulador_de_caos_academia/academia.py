@@ -18,3 +18,6 @@ class Academia:
         key_halt = list(self.porta_halteres.keys())[halt_pos]
         self.porta_halteres[key_halt] = 0
         return peso
+
+    def devolver_haltere(self, pos, peso):
+        self.porta_halteres[pos] = peso
