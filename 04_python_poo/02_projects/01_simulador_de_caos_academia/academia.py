@@ -32,3 +32,9 @@ class Usuario:
         self.tipo = tipo
         self.academia = academia
         self.peso = 0
+
+
+    def iniciar_treino(self):
+        lista_pesos = self.academia.listar_halteres()
+        self.peso = random.choice(lista_pesos)
+        self.academia.pegar_haltere(self.peso)
