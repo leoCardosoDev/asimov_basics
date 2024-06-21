@@ -6,3 +6,6 @@ class Academia:
     self.porta_halteres = {}
     self.reiniciar_o_dia()
   
+  def reiniciar_o_dia(self):
+    self.porta_halteres = {i: i for i in self.halteres}
+  
