@@ -21,7 +21,7 @@ class Academia:
 
     def devolver_haltere(self, pos, peso):
         self.porta_halteres[pos] = peso
-    
+
     def clacular_caos(self):
         num_caos = [i for i, j in self.porta_halteres.items() if i != j]
         return len(num_caos) / len(self.porta_halteres)
