@@ -4,8 +4,7 @@ import os
 
 class TicTacToe:
     def __init__(self):
-        self.board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-        self.done = ""
+        self.reset()
 
     def print_board(self):
         print("")
@@ -16,7 +15,8 @@ class TicTacToe:
         print(" " + self.board[2][0] + " | " + self.board[2][1] + " | " + self.board[2][2])
 
     def reset(self):
-        pass
+        self.board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+        self.done = ""
 
     def check_win_or_draw(self):
         pass
