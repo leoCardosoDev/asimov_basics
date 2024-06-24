@@ -8,3 +8,6 @@ class TicTacToe:
 
     def print_board(self):
         pass
+
+    def reset(self):
+        pass
