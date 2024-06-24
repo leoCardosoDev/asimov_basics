@@ -25,16 +25,22 @@ class TicTacToe:
         dict_win = {}
         for x in ['X', 'O']:
             # Condição Horizontal
-            dict_win[x] = (self.board[0][0] == self.board[0][1] == self.board[0][2])
-            dict_win[x] = (self.board[1][0] == self.board[1][1] == self.board[1][2]) or dict_win[x]
-            dict_win[x] = (self.board[2][0] == self.board[2][1] == self.board[2][2]) or dict_win[x]
+            dict_win[x] = (
+                (self.board[0][0] == self.board[0][1] == self.board[0][2] == x) or
+                (self.board[1][0] == self.board[1][1] == self.board[1][2] == x) or
+                (self.board[2][0] == self.board[2][1] == self.board[2][2] == x)
+            )
             # Condição Vertical
-            dict_win[x] = (self.board[0][0] == self.board[1][0] == self.board[2][0])
-            dict_win[x] = (self.board[0][1] == self.board[1][1] == self.board[2][1]) or dict_win[x]
-            dict_win[x] = (self.board[0][2] == self.board[1][2] == self.board[2][2]) or dict_win[x]
+            dict_win[x] = dict_win[x] or (
+                (self.board[0][0] == self.board[1][0] == self.board[2][0] == x) or
+                (self.board[0][1] == self.board[1][1] == self.board[2][1] == x) or
+                (self.board[0][2] == self.board[1][2] == self.board[2][2] == x)
+            )
             # Condição Diagonal
-            dict_win[x] = (self.board[0][0] == self.board[1][1] == self.board[2][2]) or dict_win[x]
-            dict_win[x] = (self.board[2][0] == self.board[1][1] == self.board[0][2]) or dict_win[x]
+            dict_win[x] = dict_win[x] or (
+                (self.board[0][0] == self.board[1][1] == self.board[2][2] == x) or
+                (self.board[2][0] == self.board[1][1] == self.board[0][2] == x)
+            )
 
         if dict_win['X']:
             self.done = 'x'
@@ -44,13 +50,12 @@ class TicTacToe:
             self.done = 'o'
             print('O venceu')
             return
-        c = 0
 
+        c = 0
         for i in range(3):
             for j in range(3):
-                if self.board[i][j] != " ":
-                    c+1
-                    break
+                if self.board[i][j] == " ":
+                    c+=1
 
         if c == 0:
             self.done = 'd'
@@ -74,7 +79,7 @@ class TicTacToe:
                 print(e)
                 continue
             invalid_mode = False
-            self.board[x][y] = 'X'
+        self.board[x][y] = 'X'
 
     def make_move(self):
         list_moves = []
@@ -82,10 +87,28 @@ class TicTacToe:
             for j in range(3):
                 if self.board[i][j] == " ":
                     list_moves.append((i, j))
-            if len(list_moves) > 0:
-                x, y = random.choice(list_moves)
-                self.board[x][y] = 'O'
+        if len(list_moves) > 0:
+            x, y = random.choice(list_moves)
+            self.board[x][y] = 'O'
 
 
-self = TicTacToe()
-self.print_board()
+tic_tac_toe = TicTacToe()
+tic_tac_toe.print_board()
+next = 0
+while next == 0:
+    os.system('clear')
+    tic_tac_toe.print_board()
+    while tic_tac_toe.done == '':
+        tic_tac_toe.get_player_move()
+        tic_tac_toe.make_move()
+        os.system('clear')
+        tic_tac_toe.print_board()
+        tic_tac_toe.check_win_or_draw()
+    print('Digite 1 para sair do jogo ou qualqer tecla para jogar novamente:')
+    next = int(input())
+    if next == 1:
+        break
+    else:
+        tic_tac_toe.reset()
+        next = 0
+
