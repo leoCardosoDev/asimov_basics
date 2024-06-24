@@ -77,7 +77,14 @@ class TicTacToe:
             self.board[x][y] = 'X'
 
     def make_move(self):
-        pass
+        list_moves = []
+        for i in range(3):
+            for j in range(3):
+                if self.board[i][j] == " ":
+                    list_moves.append((i, j))
+            if len(list_moves) > 0:
+                x, y = random.choice(list_moves)
+                self.board[x][y] = 'O'
 
 
 self = TicTacToe()
