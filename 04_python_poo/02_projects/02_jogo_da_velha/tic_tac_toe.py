@@ -4,7 +4,8 @@ import os
 
 class TicTacToe:
     def __init__(self):
-        pass
+        self.board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+        self.done = ""
 
     def print_board(self):
         pass
