@@ -11,3 +11,6 @@ class TicTacToe:
 
     def reset(self):
         pass
+
+    def check_win_or_draw(self):
+        pass
