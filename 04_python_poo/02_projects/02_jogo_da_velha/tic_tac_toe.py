@@ -8,7 +8,12 @@ class TicTacToe:
         self.done = ""
 
     def print_board(self):
-        pass
+        print("")
+        print(" " + self.board[0][0] + " | " + self.board[0][1] + " | " + self.board[0][2])
+        print("___________")
+        print(" " + self.board[1][0] + " | " + self.board[1][1] + " | " + self.board[1][2])
+        print("___________")
+        print(" " + self.board[2][0] + " | " + self.board[2][1] + " | " + self.board[2][2])
 
     def reset(self):
         pass
@@ -21,3 +26,6 @@ class TicTacToe:
     
     def make_move(self):
         pass
+
+self = TicTacToe()
+self.print_board()
