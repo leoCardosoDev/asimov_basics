@@ -32,3 +32,6 @@ print(f'Conjunt E: {e}')
 print(f'União de A e B: {a.union(b)}')
 print(f'União de A e B: {a | b}')
 
+# Intersecção de conjuntos
+print(f'Intersecção de conjuntos A e B: {a.intersection(b)}')
+print(f'Intersecção de conjuntos A e B: {a & b}')
