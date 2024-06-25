@@ -27,3 +27,8 @@ for elemnto in d:
 # Tuplas podem ser usadas
 e = {(1, 2, 3), (4, 5, 6)}
 print(f'Conjunt E: {e}')
+
+# União de conjuntos
+print(f'União de A e B: {a.union(b)}')
+print(f'União de A e B: {a | b}')
+
