@@ -35,3 +35,12 @@ print(f'União de A e B: {a | b}')
 # Intersecção de conjuntos
 print(f'Intersecção de conjuntos A e B: {a.intersection(b)}')
 print(f'Intersecção de conjuntos A e B: {a & b}')
+
+# Diferença de conjuntos
+# A para B
+print(f'Diferença de conjuntos de A para B: {a.difference(b)}')
+print(f'Diferença de conjuntos de A para B: {a - b}')
+print()
+# B para A
+print(f'Diferença de conjuntos de B para A: {b.difference(a)}')
+print(f'Diferença de conjuntos de B para A: {b - a}')
