@@ -10,3 +10,9 @@ print(triplos)
 # Tranformando em compreensão de listas
 tres = [triplo * 3 for triplo in valores]
 print(tres)
+
+
+# Transformando em dicionário adicionando chave e contando os caracteres
+palavras = ['Olá', 'Python', 'Leo', 'Asimov Academy']
+carater = {valor.lower(): len(valor.replace(' ', '')) for valor in palavras}
+print(carater)
