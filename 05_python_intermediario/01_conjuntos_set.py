@@ -52,7 +52,29 @@ print(f'Diferença de conjuntos de B para A: {b.difference(a)}')
 print(f'Diferença de conjuntos de B para A: {b - a}')
 print()
 # Diferença simetrica
-print(f'Diferença simetrica de conjuntos A para B: {a.symmetric_difference(b)}')
+print(
+    f'Diferença simetrica de conjuntos A para B: {a.symmetric_difference(b)}')
 print(f'Diferença simetrica de conjuntos A para B: {(a - b) | (b - a)}')
 print()
 
+# Exemplo prático
+numeros = list(range(1_000))
+numeros_conjuntos = set(numeros)
+# Define a função que será temporizada
+
+
+def verificar_numero_lista():
+    return 500 in numeros
+
+
+def verificar_numero_conjunto():
+    return 500 in numeros_conjuntos
+
+
+# Use a função timeit para medir o tempo de execução
+# 'number' define o número de execuções
+tempo_lista = timeit.timeit(verificar_numero_lista, number=1000)
+# 'number' define o número de execuções
+tempo_conjunto = timeit.timeit(verificar_numero_conjunto, number=1000)
+print(f"Tempo lista: {tempo_lista:.5f} segundos")
+print(f"Tempo conjunto: {tempo_conjunto:.5f} segundos")
