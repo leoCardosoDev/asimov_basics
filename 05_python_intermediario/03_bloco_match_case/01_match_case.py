@@ -13,3 +13,21 @@ match op:
         print('É uma string')
     case _:
         print('Opção inválida')
+
+notas = {
+    'João': 10,
+    'Maria': 9,
+    'Matheus': 9.5
+}
+
+match notas:
+    case {'João': 10}:
+        print('João tirou 10')
+    case _:
+        print('Nenhuma informação obtida!')
+
+match notas:
+    case {'Maria': _}:
+        print('Maria está no dicionário!')
+    case _:
+        print('Nenhuma informação obtida!')
