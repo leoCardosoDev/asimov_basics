@@ -88,3 +88,11 @@ print(combo)
 print()
 print('***' * 50)
 print()
+
+combos = {(comida, bebida): preco_comida + preco_bebida 
+          for comida, preco_comida in comidas.items() 
+          for bebida, preco_bebida in bebidas.items()}
+
+# Exemplo de uso
+for combo, preco in combos.items():
+    print(f'{combo}: R$ {preco:.2f}')
