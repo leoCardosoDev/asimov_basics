@@ -24,7 +24,15 @@ for i, (nome, idade) in enumerate(zip(nomes, idades)):
     print(i, nome, idade)
 
 minha_lista = [1, 2, 3, 4, 5]
-primeiro, *meio, fim = minha_lista
-print(primeiro)
+inicio, *meio, fim = minha_lista
+print(inicio)
 print(meio)
 print(fim)
+
+primeiro, *resto = (10, 20, 30, 40, 50)
+print(primeiro)
+print(resto)
+
+first, *_, last = (10, 15, 20, 25, 30, 35, 40, 45, 50, 51) 
+print(first)
+print(last)
