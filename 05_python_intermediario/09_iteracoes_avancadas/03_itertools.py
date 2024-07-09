@@ -26,3 +26,10 @@ bebidas = ('Refrigerante', 'Água')
 for prato in itertools.product(comidas, bebidas):
     print(prato)
 
+print()
+print('***' * 50)
+print()
+# combinations
+names = ['Marcos', 'Lucas', 'Rodrigo', 'Carlos']
+for combinacao in itertools.combinations(names, 2):
+    print(combinacao)
