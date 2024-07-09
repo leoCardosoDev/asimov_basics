@@ -39,3 +39,13 @@ lista1 = [1, 2, 3]
 lista2 = ['a', 'b', 'c', 'd', 'e']
 
 print(retorna_intercalados(lista1, lista2))
+
+# Desafio otmizado
+def intercalar_listas(lista1, lista2):
+    return [item for pair in itertools.zip_longest(lista1, lista2) for item in pair if item is not None]
+
+# Exemplos
+L1 = [4, 5, 6]
+L2 = ['f', 'g', 'h', 'i', 'j']
+resultado = intercalar_listas(L1, L2)
+print(resultado)  # Saída: [1, 'a', 2, 'b', 3, 'c', 'd', 'e']
