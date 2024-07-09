@@ -78,4 +78,13 @@ print(combo1)
 print()
 print('***' * 50)
 print()
-#
+# itertools way
+combo = {}
+for chave_combo in itertools.product(comidas, bebidas):
+    chave_comida, chave_bebida = chave_combo
+    preco_combo = comidas[chave_comida] + bebidas[chave_bebida]
+    combo[chave_combo] = round(preco_combo, 2)
+print(combo)
+print()
+print('***' * 50)
+print()
