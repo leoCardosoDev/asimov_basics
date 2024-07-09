@@ -39,6 +39,9 @@ lista1 = [1, 2, 3]
 lista2 = ['a', 'b', 'c', 'd', 'e']
 
 print(retorna_intercalados(lista1, lista2))
+print()
+print('***' * 50)
+print()
 
 # Desafio otmizado
 def intercalar_listas(lista1, lista2):
@@ -49,3 +52,30 @@ L1 = [4, 5, 6]
 L2 = ['f', 'g', 'h', 'i', 'j']
 resultado = intercalar_listas(L1, L2)
 print(resultado)  # Saída: [1, 'a', 2, 'b', 3, 'c', 'd', 'e']
+print()
+print('***' * 50)
+print()
+# Desafio 2
+comidas = {
+    'Prato Feito': 24.90,
+    'Salada': 21.90,
+    'Strogonoff': 29.90,
+    'Feijoada': 32.90,
+}
+bebidas = {
+    'Água': 3.90,
+    'Refrigerante': 5.90,
+    'Suco': 7.90,
+}
+# Maneira tradicional
+combo1 = {}
+for chave_comida_t, preco_comida_t in comidas.items():
+    for chave_bebida_t, preco_bebida_t in bebidas.items():
+        chave_combo_t = (chave_comida_t, chave_bebida_t)
+        preco_combo_t = preco_comida_t + preco_bebida_t
+        combo1[chave_combo_t] = round(preco_combo_t, 2)
+print(combo1)
+print()
+print('***' * 50)
+print()
+#
