@@ -11,5 +11,5 @@ nomes = ['Leo', 'Pri', 'Laura', 'Roberto', 'Guilherme']
 idades = [42, 34, 19, 47, 22]
 cpfs = ['xxx', 'yyy', 'zzz']
 emails = ['leo@gmail.com', 'pri@gmail.com']
-for elemento in itertools.zip_longest(nomes, idades, cpfs, emails):
+for elemento in itertools.zip_longest(nomes, idades, cpfs, emails, fillvalue='???'):
     print(elemento)
