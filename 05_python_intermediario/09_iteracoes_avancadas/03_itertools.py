@@ -33,3 +33,10 @@ print()
 names = ['Marcos', 'Lucas', 'Rodrigo', 'Carlos']
 for combinacao in itertools.combinations(names, 2):
     print(combinacao)
+
+print()
+print('***' * 50)
+print()
+# permutation
+for permutacao in itertools.permutations(names, 2):
+    print(permutacao)
