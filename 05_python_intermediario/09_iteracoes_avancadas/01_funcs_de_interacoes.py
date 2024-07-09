@@ -14,3 +14,9 @@ print(f'Ordenados: {ordenados}\nOrdenados reverso: {ordenados_reversed}')
 # Reversed
 for i in reversed(range(10)):
     print(i)
+
+# zip
+new_names = ['Leo', 'Pri', 'Laura', 'Roberto', 'Guilherme']
+idades = [42, 34, 19, 47, 22]
+for elemento in zip(new_names, idades):
+    print(elemento)
