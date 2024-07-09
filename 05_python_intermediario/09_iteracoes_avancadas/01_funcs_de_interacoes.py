@@ -10,3 +10,7 @@ ordenados_reversed = sorted(conjunto, reverse=True)
 print(f'Conjunto: {conjunto}\nOrdenados: {ordenados}')
 print()
 print(f'Ordenados: {ordenados}\nOrdenados reverso: {ordenados_reversed}')
+
+# Reversed
+for i in reversed(range(10)):
+    print(i)
