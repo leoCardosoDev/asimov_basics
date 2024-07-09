@@ -40,3 +40,14 @@ print()
 # permutation
 for permutacao in itertools.permutations(names, 2):
     print(permutacao)
+
+print()
+print('***' * 50)
+print()
+# cycle
+for cor in itertools.cycle(['azul', 'amarelo']):
+    print(f'\n{cor}')
+    sair = input()
+    print('___' * 50)
+    if sair == 's':
+        break
