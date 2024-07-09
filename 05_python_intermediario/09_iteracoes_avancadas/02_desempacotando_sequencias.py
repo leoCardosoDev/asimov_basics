@@ -7,3 +7,10 @@ print(a)
 print(b)
 print(c)
 
+dic = {
+    'chave1': 'valor1',
+    'chave2': 'valor2',
+    'chave3': 'valor3',
+}
+for chave, valor in dic.items():
+    print(chave, valor)
