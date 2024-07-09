@@ -51,3 +51,12 @@ for cor in itertools.cycle(['azul', 'amarelo']):
     print('___' * 50)
     if sair == 's':
         break
+
+print()
+print('***' * 50)
+print()
+# cycle
+novos_nomes = ['Marcos', 'Lucas', 'Rodrigo', 'Carlos']
+equipes = ['E1', 'E2']
+for nome, equipe in zip(novos_nomes, itertools.cycle(equipes)):
+    print(nome, equipe)
