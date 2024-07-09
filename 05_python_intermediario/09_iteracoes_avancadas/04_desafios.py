@@ -96,3 +96,13 @@ combos = {(comida, bebida): preco_comida + preco_bebida
 # Exemplo de uso
 for combo, preco in combos.items():
     print(f'{combo}: R$ {preco:.2f}')
+
+print()
+print('***' * 50)
+print()
+combo3 = {}
+for tupla in itertools.product(comidas.items(), bebidas.items()):
+    chave_combo = tuple(tup[0] for tup in tupla)
+    preco_combo = sum(tup[1] for tup in tupla)
+    combo3[chave_combo] = round(preco_combo, 2)
+print(combo3)
