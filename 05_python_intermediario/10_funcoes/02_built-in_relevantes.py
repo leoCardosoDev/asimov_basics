@@ -14,3 +14,13 @@ if all(isinstance(valor, int) for valor in valores):
     print('Todos os valores são int')
 else:
     print('Nem todos os valores são int')
+
+# map
+def somar_dois(n):
+    return n+2
+
+numeros = [3, 6, 10]
+mapa = map(somar_dois, numeros)
+print(list(mapa))
+numeros_mais_dois = [somar_dois(n) for n in numeros]
+print(numeros_mais_dois)
