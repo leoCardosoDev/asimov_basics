@@ -17,3 +17,6 @@ print(list(mapa))
 
 print(list(map(lambda x: str(x+2), [1, 2, 3])))
 ##
+lista = ['abc', 1, 4, 3.5, '.', True, '22']
+lista_ordenada = sorted(lista, key=lambda x: len(x) if isinstance(x, str) else x)
+print(lista_ordenada)
