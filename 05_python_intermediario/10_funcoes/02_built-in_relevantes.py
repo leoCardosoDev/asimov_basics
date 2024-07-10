@@ -8,3 +8,4 @@ else:
 # any e all
 booleanos = [True, False, True]
 print(all(booleanos))
+print(any(booleanos))
