@@ -7,3 +7,6 @@ print(list(filtro_sem_lambda))
 
 filtro = filter(lambda x: x > 2, [1, 2, 3, 4, 6])
 print(list(filtro))
+# Sintaxe da função lambda
+# lambda <ARGUMENTO DA FUNÇÃO>: <LÓGICA DA FUNÇÃO>
+# lambda x, y, z: x + y + z
