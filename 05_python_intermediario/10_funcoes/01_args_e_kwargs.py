@@ -22,3 +22,12 @@ def desempactando_variaveis(*args, **kwargs):
     print(kwargs)
     print('---'*30)
 desempactando_variaveis(*valores, **dicionario)
+
+def registrar_mensagem(nivel, *mensagens, **detalhes):
+    print(f"Nível: {nivel}")
+    for mensagem in mensagens:
+        print(f"Mensagem: {mensagem}")
+    for chave, valor in detalhes.items():
+        print(f"{chave}: {valor}")
+
+registrar_mensagem('INFO', 'Iniciando o sistema', 'Conexão estabelecida', usuario='admin', tempo='12:00')
