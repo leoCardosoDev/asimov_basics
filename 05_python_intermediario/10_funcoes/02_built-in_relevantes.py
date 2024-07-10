@@ -22,5 +22,17 @@ def somar_dois(n):
 numeros = [3, 6, 10]
 mapa = map(somar_dois, numeros)
 print(list(mapa))
+# usando compressão em listar
 numeros_mais_dois = [somar_dois(n) for n in numeros]
 print(numeros_mais_dois)
+
+# filter
+def meu_filtro(n):
+    return n > 5
+
+n = [3, 6, 7, 8]
+filtro = filter(meu_filtro, n)
+print(list(filtro))
+# usando compressão
+maiores_que_cinco = [n for n in numeros if meu_filtro(n)]
+print(maiores_que_cinco)
