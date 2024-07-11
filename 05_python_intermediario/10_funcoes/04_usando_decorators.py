@@ -12,3 +12,12 @@ def exibe_funcao(f):
 
 exibe_funcao(funcao)
 print('**'*40)
+
+# Função dentro de função
+def funcao_externa(x):
+    def funcao_interna():
+        return x + 2
+    valor = funcao_interna()
+    return valor
+
+print(funcao_externa(3))
