@@ -1,4 +1,4 @@
-# Decoradores existentes
+# Fundamentos antes de usar Decoradores
 def funcao():
     return 3 + 1
 
@@ -21,3 +21,10 @@ def funcao_externa(x):
     return valor
 
 print(funcao_externa(3))
+
+# Segundo exemplo
+def func_externa(x):
+    def func_interna(y):
+        return x + y + 2
+    valor = func_interna()
+    return valor
