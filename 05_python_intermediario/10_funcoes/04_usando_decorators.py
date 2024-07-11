@@ -17,7 +17,7 @@ print('**'*40)
 def funcao_externa(x):
     def funcao_interna():
         return x + 2
-    valor = funcao_interna()
+    valor = funcao_interna
     return valor
 
 print(funcao_externa(3))
@@ -26,5 +26,7 @@ print(funcao_externa(3))
 def func_externa(x):
     def func_interna(y):
         return x + y + 2
-    valor = func_interna()
-    return valor
+    return func_interna
+f = func_externa(3)
+f(2)
+print(f)
